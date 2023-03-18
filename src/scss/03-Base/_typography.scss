@@ -1,0 +1,74 @@
+@use '../01-Abstracts'as *;
+
+
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+
+body {
+    font-family: $ff-primary;
+    font-size: fs(rg);
+    font-weight: fw(regular);
+    line-height: $lineHeight;
+}
+
+
+p {
+    font-size: fs(rg);
+    line-height: 1.7;
+    color: getColor(gray-blue-5);
+    max-width: $paraMaxWidth;
+}
+
+
+.title {
+
+    h2 {
+        @include flex;
+        font-weight: 500;
+      }
+
+    span {
+        color: getColor(primary-base);
+        font-size: 1.4em;
+        margin-right: 1.6rem;
+      }
+}
+
+
+//^ --- Headings --- //
+
+h1,
+h2,
+h3,
+h4 {
+    letter-spacing: $letterSpacing;
+    text-transform: capitalize;
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+    text-align: center;
+    color: getColor(title);
+}
+
+
+h1 {
+    font-size: fs(head-1);
+    font-weight: fw(thin);
+}
+
+
+h2 {
+    font-size: fs(head-2);
+    font-weight: fw(light);
+}
+
+
+h3 {
+    font-size: fs(head-3);
+    font-weight: fw(light);
+}
+
+h4 {
+    font-size: fs(head-4);
+    font-weight: fw(light);
+}
+
+//^ ---  --- //

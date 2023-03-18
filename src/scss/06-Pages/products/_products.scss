@@ -1,0 +1,46 @@
+@use '../../01-Abstracts'as *;
+
+.products {
+  width: 90vw;
+  display: grid;
+  justify-content: center;
+  grid-gap: 3.6rem;
+  margin: 6.4rem auto;
+  // max-width: var(--max-width);
+  position: relative;
+
+  @include mq-min(em(768)){
+    grid-template-columns: auto 1fr;
+  }
+
+
+  &-container{
+    position: relative;
+
+    @include mq-min(em(992)){
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.6rem;
+
+
+      & .product-img {
+        height: 16rem;
+      }
+
+      & .product-name {
+        font-size: 1.4rem;
+      }
+
+      & .product-price {
+        font-size: 1.4rem;
+      }
+    }
+
+    @include mq-min(em(1170)){
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+
+

@@ -1,0 +1,238 @@
+//& **********************************  Colors  ********************************** //
+@use "functions"as *;
+
+
+
+$colors: ( 
+
+
+    //% ***************  General  *************** //
+
+    "black": #222,
+    "white": #fff,
+
+    "red-dark": #bb2525,
+    "red-light": #e66b6b,
+
+    "green-dark": #25bb32,
+    "green-light": #6be675,
+
+    'error':#d32752, 
+
+    //% ***************    *************** //
+
+    
+
+    //% ***************  Gray  *************** //
+    'gray': ( 
+
+        /* General ones */
+        "generic-1": #999,
+        "generic-2": #777,
+        "generic-3": #555,
+        "generic-4": #333,
+
+
+        /* Variations */
+        "200": #e5e7eb,
+        "300": #d1d5db,
+        "400": #9ca3af,
+        "500": #6b7280,
+        "600": #4b5563,
+        "700": #374151 ,
+
+
+        /* Blue-Greys */
+        "blue-1": #dae2ec,
+        "blue-2": #bcccdc,
+        "blue-3": #9eb2c7,
+        "blue-4": #829ab0,
+        "blue-5": #617d98,
+
+        "blue-6": #48647f,
+        "blue-7": #324d67,
+        "blue-8": #243a52,
+        "blue-9": #102a42,
+    ),
+    //% ***************    *************** //
+
+
+    //% ***************  Slate  *************** //
+    slate: (
+        "50": #f8fafc,
+        "100": #f1f5f9,
+        "200": #e2e8f0,
+        "300": #cbd5e1,
+        "400": #94a3b8,
+        "500": #64748b,
+        "600": #475569,
+        "700": #334155,
+        "800": #1e293b,
+        "900": #0f172a,
+    ),
+    //% ***************    *************** //
+
+
+
+    //@ ***************************** Theme Colors *****************************//
+
+    //% ***************  Light Theme  *************** //
+
+    //# ******** Primary Light ******** //
+    primary-light: ( 
+
+    "base": hsl(21, 62%, 45%),
+
+    // Light Shades
+    "100": hsl(21, 100%, 94%),
+    "150": hsl(21, 94%, 87%),
+    "200": hsl(21, 80%, 74%),
+    "300": hsl(21, 65%, 59%),
+    "400": hsl(21, 57%, 50%),
+
+    // Dark Shades
+    "600": hsl(21, 77%, 34%),
+    "700": hsl(21, 81%, 29%),
+    "800": hsl(21, 84%, 25%),
+    "900": hsl(21, 91%, 17%), 
+    ),
+
+
+    //# ******** Secondary Light ******** //
+
+
+    
+    //% ***************  Dark Theme *************** //
+
+    //# ******** Primary Dark ******** //
+
+
+    //# ******** Secondary Dark ******** //
+
+
+    //@ *****************************   ***************************** //
+);
+
+
+// Get Color Function
+@function color($key, $map: $colors) {
+
+    $keys: str-explode($key, '.');
+
+    @return deep-map-get($map, $keys...);
+}
+
+
+//& **********************************  End Of Colors  ********************************** //
+
+
+
+
+//& **********************************  Fonts  ********************************** //
+
+//% ***************  Font-Size  *************** //
+$font-sizes: ( 
+
+    // Text
+    "sm-1": clamp(1.2rem, 1.1rem + 0.3vw, 1.6rem),
+    "sm-2": clamp(1.45rem, 1.2rem + 0.3vw, 1.8rem),
+    "sm-3": clamp(1.6rem, 1.3rem + 0.4vw, 2rem),
+    "rg": clamp(1.8rem, 1.5rem + 0.5vw, 2.2rem),
+    "lg-1": clamp(2rem, 1.7rem + 0.6vw, 2.5rem),
+    "lg-2": clamp(2.3rem, 2rem + 0.7vw, 2.7rem),
+    "lg-3": clamp(2.5rem, 2.2rem + 1vw, 3rem),
+    "lg-4": clamp(2.8rem, 2.3rem + 1.3vw, 3.4rem),
+
+    // Headings
+    "head-1": clamp(3.5rem,4rem + 1.5vw,6rem),
+    "head-2": 4.7rem,
+    "head-3": 4rem,
+    "head-4": 3.5rem,
+
+    "head-xl": 9rem,
+    "head-xxl": 12rem,
+);
+
+
+@function fs($font-size) {
+    @return map-get($font-sizes, $font-size);
+}
+//% ***************    *************** //
+
+
+
+//% ***************  Font-Weight  *************** //
+$font-weights: ( 
+    "thin": 100,
+    "light": 300,
+    "regular": 400,
+    "medium": 500,
+    "semibold": 600,
+    "bold": 700,
+    "black": 900
+);
+
+
+@function fw($font-weight-style) {
+    @return map-get($font-weights, $font-weight-style);
+}
+//% ***************    *************** //
+
+
+
+//% ***************  Font-Family  *************** //
+$ff-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+$ff-secondary: 'Kaushan Script', cursive;
+//% ***************    *************** //
+
+
+//& **********************************  End Of Fonts  ********************************** //
+
+
+
+
+//& **********************************  Shadows  ********************************** //
+
+$shadows: ( 
+
+    // Small
+    sm-1: 0 0.2rem 0.5rem rgba(color('black'), 0.05),
+    sm-2: 0 0.3rem 0.8rem rgba(color('black'), 0.05),
+    sm-3: 0 0.6rem 1.2rem rgba(color('black'), 0.05),
+
+    // Regular 
+    rg-1: 0 0.2rem 0.5rem  rgba(color('black'), 0.08),
+    rg-2: 0 0.3rem 0.8rem rgba(color('black'), 0.08),
+    rg-3: 0 0.6rem 1.2rem rgba(color('black'), 0.08),
+
+    // Large
+    lg-1: 0 0.4rem 0.8rem rgba(color('black'), 0.12),
+    lg-2: 0 0.8rem 1.6rem rgba(color('black'), 0.1),
+    lg-3: 0 1.3rem 3rem rgba(color('black'), 0.1));
+
+
+@function shadow($shadow) {
+    @return map-get($shadows, $shadow);
+}
+
+//& **********************************  End Of Shadows  ********************************** //
+
+
+
+
+//& **********************************  Other  ********************************** //
+
+$letterSpacing: 0.1rem;
+$baseRadius: 4px;
+$baseGutter: 0.4rem;
+$lineHeight: 1.6;
+$max-width: 1170px;
+$fixed-width: 620px;
+$paraMaxWidth: 40em;
+$transition: all 0.3s ease-in-out;
+$light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+$dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+//& **********************************  End Of Other  ********************************** //

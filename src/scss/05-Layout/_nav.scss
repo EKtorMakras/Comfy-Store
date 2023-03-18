@@ -1,0 +1,128 @@
+@use '../01-Abstracts'as *;
+
+
+.navbar {
+  @include flex;
+  height: 11rem;
+  background: transparent;
+}
+
+.nav-center {
+  width: 90vw;
+  max-width: var(--max-width);
+  @include flex($justifyContent:space-between);
+
+  @include mq-min(em(800)){
+    position: relative;
+  }
+}
+
+.nav-links {
+  display: none;
+
+  @include mq-min(em(800)){
+    display: flex;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+  }
+}
+
+.nav-link{
+
+  @include mq-min(em(800)){
+    color: getColor(slate-50);
+    margin-right: 4.8rem;
+    letter-spacing: var(--letterSpacing);
+    transition: var(--transition);
+    font-size: 2rem;
+
+    &:hover {
+      color: getColor(primary-base);
+    }
+  }
+}
+
+.nav-logo {
+
+  @include mq-min(em(800)){
+    position: absolute;
+    top: 50%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+  }
+
+  @include mq-min(em(992)){
+    left: 50%;
+  }
+}
+
+
+// Toggle Nav
+.toggle-nav {
+  @include flex;
+  background: getColor(primary-base);
+  color: getColor(slate-50);
+  border-color: transparent;
+  width: 7.2rem;
+  height: 4.2rem;
+  font-size: fs(lg-3);
+  border-radius: 3rem;
+  transition: var(--transition);
+  cursor: pointer;
+
+  &:hover {
+    background-color: getColor(primary-700);
+  }
+
+  @include mq-min(em(800)){
+    display: none;
+  }
+}
+
+.toggle-container {
+  position: relative;
+  margin-top: 0.75rem;
+}
+
+.toggle-cart {
+  background: transparent;
+  border-color: transparent;
+  font-size: fs(lg-4);
+  color: getColor(slate-50);
+  cursor: pointer;
+}
+
+
+.cart-item-count {
+  background: getColor(primary-base);
+  color: getColor(slate-50);
+  position: absolute;
+  top: -1.4rem;
+  right: -1.4rem;
+  width: 2.8rem;
+  height: 2.8rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: fs(rg);
+}
+
+
+/* page navbar */
+.page {
+
+  .nav-link {
+    color: getColor(gray-blue-9);
+
+    &:hover {
+      color: getColor(primary-base);
+    }
+  }
+
+  .toggle-cart {
+    color: getColor(gray-blue-9);
+  }
+}
+
+

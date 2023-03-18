@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <!-- Font-awesome -->
+  <script src="https://kit.fontawesome.com/a9c97bd30a.js" crossorigin="anonymous"></script>
+
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@400;500;600;700;800&family=Indie+Flower&display=swap"
+    rel="stylesheet" />
+
+
+  <!-- Js -->
+  <script src="./src/js/pages/products.js" type="module" defer></script>
+
+  <!-- Css -->
+  <link rel="stylesheet" href="./src/scss/style.scss">
+
+  <title>Products | Comfy</title>
+
+</head>
+
+
+<body>
+
+  <!--* ***************************************  Header  *************************************** -->
+
+
+  <!-- $ *******************  Nav  ******************* $ -->
+  <nav class="navbar page">
+    <div class="nav-center">
+
+      <!--^ *****  Links  *****  -->
+      <div>
+        <button class="toggle-nav">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <ul class="nav-links">
+          <!-- dynamically inserted links -->
+        </ul>
+      </div>
+
+
+      <!--^ *****  Logo  *****  -->
+      <img src="./src/assets/images/logo-black.svg" class="nav-logo" alt="logo">
+
+
+
+      <!--^ *****  Cart Icon  *****  -->
+      <div class="toggle-container">
+        <button class="toggle-cart">
+          <i class="fas fa-shopping-cart"></i>
+        </button>
+        <span class="cart-item-count">1</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- $ *******************  End Of Nav  ******************* $ -->
+
+
+
+  <!-- $ *******************  Hero  ******************* $ -->
+
+  <section class="page-hero">
+    <div class="section-center">
+      <h3 class="page-hero-title">Home / Products</h3>
+    </div>
+  </section>
+  <!-- $ *******************  End Of Hero  ******************* $ -->
+
+
+
+  <!-- $ *******************  Sidebar  ******************* $ -->
+  <div class="sidebar-overlay">
+    <aside class="sidebar">
+
+      <!-- close -->
+      <button class="sidebar-close">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <!-- links -->
+      <ul class="sidebar-links">
+        <!-- dynamically inserted links -->
+      </ul>
+    </aside>
+  </div>
+  <!-- $ *******************  End Of Sidebar  ******************* $ -->
+
+
+
+  <!-- $ *******************  Cart  ******************* $ -->
+  <div class="cart-overlay">
+    <aside class="cart">
+
+      <!-- close -->
+      <button class="cart-close">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <!-- header -->
+      <header>
+        <h3 class="text-slanted">your bag</h3>
+      </header>
+
+      <!-- Items -->
+      <div class="cart-items">
+
+      </div>
+
+      <!-- footer -->
+      <footer>
+        <h3 class="cart-total text-slanted"></h3>
+        <button class="cart-checkout btn">checkout</button>
+      </footer>
+    </aside>
+  </div>
+  <!-- $ *******************  End Of Cart  ******************* $ -->
+
+  <!--* ***************************************  End Of Header  *************************************** -->
+
+
+
+
+  <!--* ***************************************  Main  *************************************** -->
+
+  <section class="products">
+
+    <!--^ *****  Filters  *****  -->
+    <div class="filters">
+      <div class="filters-container">
+
+        <!-- search -->
+        <form class="search-form">
+          <input type="text" placeholder="search..." class="search-input">
+          <i class="fas fa-circle-xmark search-clear-icon hide"></i>
+        </form>
+
+        <!-- categories -->
+        <h4>Company</h4>
+
+        <article class="companies"></article>
+
+        <!-- price -->
+        <h4>Price</h4>
+
+        <form class="price-form">
+          <input type="range" class="price-filter" min="0" max="100" value="50">
+        </form>
+        <p class="price-value">10</p>
+      </div>
+    </div>
+
+    <!--^ *****  Filters  *****  -->
+    <div class="products-container"></div>
+
+  </section>
+
+  <!--^ *****  Page Loading  *****  -->
+  <div class="page-loading products-page-loading">
+    <h2>Loading...</h2>
+  </div>
+
+  <!--* ***************************************  End Of Main  *************************************** -->
+
+
+</body>
+
+</html>
+
+
+
+<!-- ------------------------------------------------- Comments -------------------------------------------------- -->
+
+<!--* ***************************************   Comment  *************************************** -->
+<!--* ***************************************  End Of Comment  *************************************** -->
+
+
+<!-- & ********************************  Comment  ********************************  -->
+<!-- & ********************************  End Of Comment  ********************************  -->
+
+
+<!-- $ *******************  Comment  ******************* $ -->
+<!-- $ *******************  End Of Comment  ******************* $ -->
+
+
+<!-- % ***************  Comment  ***************  -->
+<!-- % ***************  End Of Comment  ***************  -->
+
+
+<!-- @ ************  Comment  ************  -->
+<!-- @ ************  End Of Comment  ************  -->
+
+
+<!-- # ********  Comment  ********  -->
+<!-- # ********  End Of Comment  ********  -->
+
+
+<!-- ^ *****  Comment  *****  -->
+<!-- ^ *****  End Of Comment  *****  -->

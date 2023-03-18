@@ -1,0 +1,97 @@
+@use '../../01-Abstracts'as *;
+
+.filters {
+
+  &-container {
+    position: sticky;
+    top: 1.6rem;
+  }
+
+  h4 {
+    text-align: left;
+    font-weight: 500;
+    margin: 2.4rem 0 0.8rem;
+  }
+}
+
+
+.search {
+
+  &-form {
+    position: relative;
+  }
+
+  &-input {
+    padding: 0.8rem;
+    background: getColor(slate-100);
+    border-radius: var(--radius-1);
+    border-color: transparent;
+    letter-spacing: var(--letterSpacing);
+
+    &::placeholder {
+      text-transform: capitalize;
+    }
+  }
+  
+  &-clear-icon {
+    color: getColor(gray-blue-6);
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: var(--transition);
+    cursor: pointer;
+
+    &:hover {
+      color: getColor(gray-blue-8);
+    }
+  }
+}
+
+
+
+.company-btn {
+  display: block;
+  margin: 0.25em 0;
+  padding: 0.4rem 2rem;
+  text-transform: capitalize;
+  background: transparent;
+  border-color: transparent;
+  letter-spacing: var(--letterSpacing);
+  color: getColor(gray-blue-5);
+  cursor: pointer;
+  transition: var(--transition);
+
+  &.active{
+    background-color: getColor(slate-200);
+  }
+
+  &:hover {
+    color: getColor(gray-blue-7);
+  }
+}
+
+
+.price-filter {
+background: getColor(gray-blue-5) !important;
+color: getColor(gray-blue-5);
+}
+
+
+.categories {
+
+@include mq-min(em(768)){
+  position: sticky;
+  top: 1.6rem;
+}
+}
+
+
+.filter-error {
+position: absolute;
+top: 8rem;
+left: 0;
+width: 100%;
+text-align: center;
+margin-top: 6.4rem;
+}

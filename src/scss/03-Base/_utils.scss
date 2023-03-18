@@ -1,0 +1,233 @@
+@use '../01-Abstracts'as *;
+
+
+//& ******* Generic ******* //
+
+// container
+.container {
+    @include center-mar;
+    max-width: var(--max-width);
+}
+
+// Break out of a container 
+.bust-out {
+    margin: 0 calc(50% - 50vw) 
+} 
+
+@mixin bust-out ($width: 20%) {
+   margin: auto calc(50% - 50vw);
+   width: $width;
+   transform: translateX(calc(50vw - 50%));
+ }
+
+
+// clearfix
+.clearfix {
+    @include clearfix;
+}
+
+
+// section set-up
+.section {
+    padding: 5rem 0;
+
+
+    &-center {
+        width: 90vw;
+        @include center-mar;
+        max-width: $max-width;
+
+        @include mq-min(992px) {
+            width: 95vw;
+        }
+    }
+
+
+    &-title {
+        margin-bottom: 4rem;
+        text-align: center;
+    }
+}
+
+
+//& ******* Visibility ******* //
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+
+//& ******* Styled Text ******* //
+.error {
+    color: getColor(slate-50);
+    background-color: getColor(error);
+}
+
+.text-slanted {
+    font-family: $ff-secondary;
+}
+
+
+//& ******* Loading ******* //
+.section-loading {
+    text-align: center;
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.page-loading {
+    @include flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: getColor(slate-100);
+}
+
+
+//& ******* Radius ******* //
+.sharp {
+    border-radius: var(--radius-1) !important;
+}
+
+.rounded {
+    border-radius: var(--radius-3) !important;
+}
+
+.pilled {
+    border-radius: var(--pilled) !important;
+}
+
+.circle {
+    border-radius: var(--circle) !important;
+}
+
+
+//& ******* Shadows ******* //
+.light-shadow {
+    box-shadow: var(--light-shadow) !important;
+}
+
+.dark-shadow {
+    box-shadow: var(--dark-shadow) !important;
+}
+
+
+//& ******* Spacing ******* //
+
+@for $i from 1 through 35 {
+
+    // Margins
+    .ma-#{$i}{
+        margin: calc(#{$baseGutter} * #{$i});
+    }
+    .mt-#{$i}{
+        margin-top: calc(#{$baseGutter} * #{$i});
+    }
+    .mb-#{$i}{
+        margin-bottom: calc(#{$baseGutter} * #{$i});
+    }
+    .mr-#{$i}{
+        margin-right: calc(#{$baseGutter} * #{$i});;
+    }
+    .ml-#{$i}{
+        margin-left: calc(#{$baseGutter} * #{$i});
+    }
+
+
+    // Paddings
+    .pa-#{$i}{
+        padding: calc(#{$baseGutter} * #{$i});
+    }
+    .pt-#{$i}{
+        padding-top: calc(#{$baseGutter} * #{$i});
+    }
+    .pb-#{$i}{
+        padding-bottom: calc(#{$baseGutter} * #{$i});
+    }
+    .pr-#{$i}{
+        padding-right: calc(#{$baseGutter} * #{$i});;
+    }
+    .pl-#{$i}{
+        padding-left: calc(#{$baseGutter} * #{$i});
+    }
+}
+
+
+//$ **************** Media Based Utils  ****************$//
+
+$text-align-values: left, right, justify, center;
+
+// center text
+@each $val in $text-align-values {
+  .text-#{$val}{
+      text-align: $val;
+  }
+}
+
+
+//& ******* Xs Breakpoint ******* //
+@include respond(xs) {
+
+  // center text
+  @each $val in $text-align-values {
+    .text-xs-#{$val}{
+        text-align: $val;
+    }
+  }
+}
+
+
+//& ******* Sm Breakpoint ******* //
+@include respond(sm) {
+
+  // center text
+  @each $val in $text-align-values {
+    .text-sm-#{$val}{
+        text-align: $val;
+    }
+  }
+}
+
+
+//& ******* Md Breakpoint ******* //
+@include respond(md) {
+
+  // center text
+  @each $val in $text-align-values {
+    .text-md-#{$val}{
+        text-align: $val;
+    }
+  }
+}
+
+
+//& ******* Lg Breakpoint ******* //
+@include respond(lg) {
+
+  // center text
+  @each $val in $text-align-values {
+    .text-lg-#{$val}{
+      text-align: $val;
+    }
+  } 
+}
+
+
+//& ******* Xl Breakpoint ******* //
+@include respond(xl) {
+
+  // center text
+  @each $val in $text-align-values {
+    .text-xl-#{$val}{
+        text-align: $val;
+    }
+  } 
+}

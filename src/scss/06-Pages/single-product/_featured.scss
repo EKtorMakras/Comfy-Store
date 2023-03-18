@@ -1,0 +1,26 @@
+@use '../../01-Abstracts'as *;
+
+.featured-center {
+  margin: 4.8rem auto 3.2rem auto;
+  display: grid;
+  gap: 1.6rem;
+  min-height: 9.6rem;
+  position: relative;
+
+  @include mq-min(em(992)){
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include mq-min(em(1200)){
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+
+.featured .btn {
+  display: block;
+  width: 18rem;
+  margin: 0 auto;
+  text-align: center;
+}

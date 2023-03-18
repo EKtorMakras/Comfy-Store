@@ -1,0 +1,44 @@
+@use 'variables' as *;
+
+
+
+//% ***************  Light Theme  *************** //
+$colors-light: (
+
+    //& ******** Primary ******** //
+    primary: ( 
+        "base": color('primary-light.base'),
+
+        "100": color('primary-light.100'),
+        "150": color('primary-light.150'),
+        "200": color('primary-light.200'),
+        "300": color('primary-light.300'),
+        "400": color('primary-light.400'),
+
+
+        "600": color('primary-light.600'),
+        "700": color('primary-light.700'),
+        "800": color('primary-light.800'),
+        "900": color('primary-light.900'),
+    ),
+
+
+
+    //& ******** Other ******** //
+    'text': color('gray.blue-5'),
+    'title': color('gray.blue-9'),
+    'bg-body': color('slate.50')
+);
+
+
+
+//% ***************  Dark Theme  *************** //
+$colors-dark: (
+
+    
+
+    //& ******** Other ******** //
+    'text': color('slate.50'),
+    'title': color('slate.100'),
+    'bg': color('gray.blue-5')
+);

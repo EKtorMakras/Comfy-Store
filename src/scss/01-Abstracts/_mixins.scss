@@ -1,0 +1,223 @@
+@use 'sass:list';
+@use 'variables' as *;
+@use 'themes' as *;
+
+
+
+//% ***************  General  *************** //
+
+// Transition
+@mixin transition($property:all, $time:.3s, $function:ease-in-out) {
+    transition: $property $time $function;
+}
+
+
+// Flexbox
+@mixin flex($direction:row, $justifyContent:center, $alignItems:center) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justifyContent;
+    align-items: $alignItems;
+}
+
+
+// Pseudo element overlay
+@mixin pseudo ($loc: before, $content: '',$bgColor: rgba(color('black'),.3)) {
+    position: relative;
+    isolation: isolate;
+
+    &::#{$loc} {
+        content: $content;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-color: $bgColor;
+        transition: $transition;
+    }
+}
+
+// Darken Overlay
+@mixin darkenOverlay ($bg: rgb(0,0,0),$opacity: 0.15,$radius:0) {
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background: $bg;
+        border-radius: $radius;
+        opacity: $opacity;
+        transition: $transition;
+        pointer-events: none;
+        user-select: none;
+        backface-visibility: hidden;
+    }
+}
+
+
+// Bg-Image
+@mixin bg-image($image) {
+    background-image: url(/src/assets/images/#{$image});
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+
+// Darken bg color
+@mixin darkenBgColor ($bgColor,$amount: 6%,$color) {
+    background-color: $bgColor;
+
+    &:hover,
+    &:active {
+        background-color: darken($bgColor, $amount);
+        color: $color;
+    }
+}
+
+    // Lighten bg color
+    @mixin lightenBgColor ($bgColor,$amount: 6%,$color) {
+        background-color: $bgColor;
+
+        &:hover,
+        &:active {
+            background-color: lighten($bgColor, $amount);
+            color: $color;
+        }
+    }
+
+
+// Focus State
+@mixin focus-state($color: color('primary-light.base')){
+
+    &:focus-visible {
+        outline: 3px solid transparent;
+        outline-offset: 4px;
+        box-shadow: 0 0 3px 2px #ffffff,
+          0 0 4px 4px $color;
+    }
+}
+
+
+// Clearfix
+@mixin clearfix {
+
+    &::after,
+    &::before {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+
+// Generate Color Custom Props
+@mixin generate-color-custom-props ($map: $colors,$prefix: clr) {
+
+    @each $color,$shades in $map{
+
+        @if type-of($shades)=='map' {
+
+            @each $shade,
+            $tone in $shades {
+                --#{$prefix}-#{$color}-#{$shade}: #{$tone};
+            }
+        }
+
+        @else {
+            --#{$prefix}-#{$color}: #{$shades};
+        }
+    }
+}
+
+//% ***************    *************** //
+
+
+
+//% ***************  Centering  *************** //
+
+// Center with position //
+@mixin center-pos {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+// Center with flexbox //
+@mixin center-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+// Center with margins //
+@mixin center-mar {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+//% ***************    *************** //
+
+
+
+//% ***************  Components  *************** //
+
+// Button //
+%btn-standard {
+  @include transition(all, .4s, ease);
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: $letterSpacing;
+  border-color: transparent;
+  border-radius: var(--radius-1);
+  box-shadow: shadow(lg-1);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+
+@mixin btn($bgColor: color('primary-light.base'), $textColor: color('slate.50'), $type: normal){
+
+
+    &,
+    &:link,
+    &:visited {
+
+        @extend %btn-standard;
+        @include focus-state($bgColor);
+
+        
+        padding: .7em 1.6em;
+        color: $textColor;
+        
+        font-size: fs(sm-2);
+
+
+        @if $type == normal {
+            @include lightenBgColor($bgColor,18%,$color:color('black'));
+        }
+
+        @if $type == outlined {
+            background-color: #fff;
+            border: 1px solid $bgColor;
+            color: $bgColor;
+
+            &:hover,&:active {
+                background-color: $bgColor;
+                color: $textColor;
+            }
+        }
+    }
+}
